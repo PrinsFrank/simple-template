@@ -1,10 +1,9 @@
 parameters:
-    tmpDir: .phpstan.result.cache
+    tmpDir: ./cache/.phpstan.result.cache
     level: 9
     paths:
         - src
         - tests
-        - dev
     phpVersion: 80100 # Lowest currently supported version
     exceptions:
         check:

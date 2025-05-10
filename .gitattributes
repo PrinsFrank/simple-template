@@ -6,9 +6,10 @@
 /docs/gifs          export-ignore
 /docs/images        export-ignore
 /tests              export-ignore
+/.editorconfig      export-ignore
 /.gitattributes     export-ignore
-/CONTRIBUTING.md    export-ignore
 /.gitignore         export-ignore
 /.php-cs-fixer.php  export-ignore
+/CONTRIBUTING.md    export-ignore
 /phpstan.neon       export-ignore
 /phpunit.xml.dist   export-ignore

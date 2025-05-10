@@ -5,9 +5,9 @@ namespace PrinsFrank\SimpleTemplate;
 use Laminas\Escaper\Escaper;
 use RuntimeException;
 
-class TemplateRenderer {
+readonly class TemplateRenderer {
     public function __construct(
-        private readonly Escaper $escaper,
+        private Escaper $escaper,
     ) {
     }
 
@@ -20,11 +20,12 @@ class TemplateRenderer {
 
     /** @throws RuntimeException */
     public function renderToString(string $path, object $viewModel): string {
-        ob_start();
-        $this->render($path, $viewModel);
+        if (!ob_start()) {
+            throw new RuntimeException('Unable to start output buffer');
+        }
 
-        $output = ob_get_clean();
-        if ($output === false) {
+        $this->render($path, $viewModel);
+        if (($output = ob_get_clean()) === false) {
             throw new RuntimeException('Failed to get output buffer contents.');
         }
 
